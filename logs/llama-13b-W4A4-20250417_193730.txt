@@ -1,0 +1,31 @@
+/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/transformers/optimization.py:411: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+  0%|          | 0/5000 [00:00<?, ?it/s]/home/Qitao/project/ZO_quant_new/trainer.py:798: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.act_scales = torch.load(f'/home/Qitao/project/ZO_quant_new/act_scales/{self.args.model_nick_name}.pt')
+/home/Qitao/project/ZO_quant_new/trainer.py:799: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.act_shifts = torch.load(f'/home/Qitao/project/ZO_quant_new/act_shifts/{self.args.model_nick_name}.pt')
+/home/Qitao/project/ZO_quant_new/eval_wiki.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  testloader = torch.load(cache_testloader)
+
+  0%|          | 0/166 [00:00<?, ?it/s][A  0%|          | 0/166 [00:01<?, ?it/s]
+Traceback (most recent call last):
+  File "/home/Qitao/project/ZO_quant_new/test.py", line 158, in <module>
+    trainer.train()
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/transformers/trainer.py", line 1539, in train
+    return inner_training_loop(
+  File "/home/Qitao/project/ZO_quant_new/trainer.py", line 868, in _inner_training_loop
+    best_eval_results = evaluate(model, self.args)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/Qitao/project/ZO_quant_new/eval_wiki.py", line 52, in evaluate
+    logits = model.lm_head(hidden_states)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/accelerate/hooks.py", line 176, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/nn/modules/linear.py", line 117, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:1 and cuda:0! (when checking argument for argument mat2 in method wrapper_CUDA_mm)
+  0%|          | 0/5000 [00:05<?, ?it/s]

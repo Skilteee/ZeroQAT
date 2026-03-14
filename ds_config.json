@@ -1,0 +1,10 @@
+{
+
+        "bf16": {
+        "enabled": "auto"
+    },
+
+    "zero_optimization": {
+        "overlap_comm": false
+    },
+}

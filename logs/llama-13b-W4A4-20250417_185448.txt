@@ -1,0 +1,139 @@
+/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/transformers/optimization.py:411: FutureWarning: This implementation of AdamW is deprecated and will be removed in a future version. Use the PyTorch implementation torch.optim.AdamW instead, or set `no_deprecation_warning=True` to disable this warning
+  warnings.warn(
+  0%|          | 0/5000 [00:00<?, ?it/s]/home/Qitao/project/ZO_quant_new/trainer.py:799: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.act_scales = torch.load(f'/home/Qitao/project/ZO_quant_new/act_scales/{self.args.model_nick_name}.pt')
+/home/Qitao/project/ZO_quant_new/trainer.py:800: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  self.act_shifts = torch.load(f'/home/Qitao/project/ZO_quant_new/act_shifts/{self.args.model_nick_name}.pt')
+/home/Qitao/project/ZO_quant_new/eval_wiki.py:24: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  testloader = torch.load(cache_testloader)
+
+  0%|          | 0/166 [00:00<?, ?it/s][APython 3.10.12 (main, Jul  5 2023, 18:54:27) [GCC 11.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+(InteractiveConsole)
+>>> RuntimeError('indices should be either on cpu or on the same device as the indexed tensor (cuda:0)')
+>>> tensor([[[ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+         [-0.0881,  0.0881, -0.1763,  ...,  0.0881,  0.0000, -0.0881],
+         [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
+         ...,
+         [ 0.0000,  0.0782, -0.0782,  ..., -0.1565,  0.3130,  0.0000],
+         [-0.0801,  0.1603, -0.1603,  ..., -0.0801,  0.2405, -0.1603],
+         [ 0.0715,  0.0715, -0.1429,  ..., -0.1429,  0.1429, -0.0715]]],
+       device='cuda:1', dtype=torch.float16)
+>>> tensor([[[[     0., -65504., -65504.,  ..., -65504., -65504., -65504.],
+          [     0.,      0., -65504.,  ..., -65504., -65504., -65504.],
+          [     0.,      0.,      0.,  ..., -65504., -65504., -65504.],
+          ...,
+          [     0.,      0.,      0.,  ...,      0., -65504., -65504.],
+          [     0.,      0.,      0.,  ...,      0.,      0., -65504.],
+          [     0.,      0.,      0.,  ...,      0.,      0.,      0.]]]],
+       device='cuda:1', dtype=torch.float16)
+>>> tensor([[   0,    1,    2,  ..., 2045, 2046, 2047]], device='cuda:1')
+>>> QuantLlamaAttention(
+  (rotary_emb): LlamaRotaryEmbedding()
+  (k_proj): QuantLinear(
+    (weight_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+    (act_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+  )
+  (v_proj): QuantLinear(
+    (weight_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+    (act_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+  )
+  (q_proj): QuantLinear(
+    (weight_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+    (act_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+  )
+  (o_proj): QuantLinear(
+    (weight_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+    (act_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+  )
+  (qkt_matmul): QuantMatMul(
+    (x1_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+    (x2_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+  )
+  (pv_matmul): QuantMatMul(
+    (x1_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+    (x2_quantizer): UniformAffineQuantizer(
+      (sigmoid): Sigmoid()
+    )
+  )
+)
+>>> UnicodeEncodeError: 'utf-8' codec can't encode character '\udce2' in position 27: surrogates not allowed
+>>> QuantLinear(
+  (weight_quantizer): UniformAffineQuantizer(
+    (sigmoid): Sigmoid()
+  )
+  (act_quantizer): UniformAffineQuantizer(
+    (sigmoid): Sigmoid()
+  )
+)
+>>> Parameter containing:
+tensor([[-0.0402,  0.0021, -0.0105,  ...,  0.0443, -0.0003,  0.0003],
+        [ 0.0136,  0.0164, -0.0117,  ..., -0.0028, -0.0256, -0.0173],
+        [ 0.0019,  0.0211,  0.0121,  ...,  0.0141, -0.0018, -0.0401],
+        ...,
+        [ 0.0094,  0.0165, -0.0027,  ...,  0.0137, -0.0595, -0.0311],
+        [-0.0077, -0.0267, -0.0188,  ..., -0.0065, -0.0427,  0.0237],
+        [ 0.0367, -0.0434,  0.0194,  ..., -0.0164,  0.0052, -0.0138]],
+       device='cuda:0', dtype=torch.float16, requires_grad=True)
+>>> tensor([[-0.1108,  0.0000, -0.0316,  ...,  0.1203,  0.0000,  0.0000],
+        [ 0.0400,  0.0400, -0.0400,  ...,  0.0000, -0.0692, -0.0346],
+        [ 0.0000,  0.0563,  0.0375,  ...,  0.0432,  0.0000, -0.1081],
+        ...,
+        [ 0.0263,  0.0526,  0.0000,  ...,  0.0426, -0.1705, -0.0853],
+        [-0.0236, -0.0707, -0.0471,  ..., -0.0253, -0.1265,  0.0506],
+        [ 0.1013, -0.1013,  0.0607,  ..., -0.0467,  0.0233, -0.0233]],
+       device='cuda:1', dtype=torch.float16)
+>>> ... ... ... ... ... ... ... Traceback (most recent call last):
+  File "/home/Qitao/project/ZO_quant_new/models/int_llama_layer.py", line 247, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/Qitao/project/ZO_quant_new/models/int_llama_layer.py", line 125, in forward
+    query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin, position_ids)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 184, in apply_rotary_pos_emb
+    cos = cos[position_ids].unsqueeze(1)  # [bs, 1, seq_len, dim]
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cuda:0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1553, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1562, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/Qitao/project/ZO_quant_new/models/int_llama_layer.py", line 125, in forward
+    query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin, position_ids)
+  File "/home/Qitao/anaconda3/envs/qitao/lib/python3.10/site-packages/transformers/models/llama/modeling_llama.py", line 184, in apply_rotary_pos_emb
+    cos = cos[position_ids].unsqueeze(1)  # [bs, 1, seq_len, dim]
+RuntimeError: indices should be either on cpu or on the same device as the indexed tensor (cuda:0)
+>>>   File "<console>", line 1
+    [Aexit
+    ^
+SyntaxError: invalid syntax
+>>>   0%|          | 0/166 [03:10<?, ?it/s]
+  0%|          | 0/5000 [03:14<?, ?it/s]
